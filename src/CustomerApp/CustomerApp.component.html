@@ -1,18 +1,30 @@
 <div class="toolbar" role="banner">
-  
+
   <span>Welcome</span>
-   
 
-    <span>{{ title }} app is running!</span><br><br>
-    Customer code : <input [(ngModel)] = "CustomerModel.CustomerCode" type = text /><br>
-    Customer Name : <input [(ngModel)] = "CustomerModel.CustomerName" type = text /><br>
-    Customer Amount : <input [(ngModel)] = "CustomerModel.CustomerAmount" type = text /><br>
-    <input type = "button" value="Add"><br><br>
-    {{CustomerModel.CustomerCode}}<br>
-    {{CustomerModel.CustomerName}}<br>
-    {{CustomerModel.CustomerAmount}}<br>
-    
-  </div>
 
- 
+  <span>{{ title }} app is running!</span><br><br>
+  Customer code : <input [(ngModel)]="CustomerModel.CustomerCode" type=text /><br>
+  Customer Name : <input [(ngModel)]="CustomerModel.CustomerName" type=text /><br>
+  Customer Amount : <input [(ngModel)]="CustomerModel.CustomerAmount" type=text /><br>
+  <input type="button" (click)="Add()" value="Add"><br><br>
+  {{CustomerModel.CustomerCode}}<br>
+  {{CustomerModel.CustomerName}}<br>
+  {{CustomerModel.CustomerAmount}}<br><br><br><br>
+  <table>
+    <tr>
+      <td>Customer Code</td>
+      <td>Customer Name</td>
+      <td>Customer Amount</td>
+    </tr>
+    <tr *ngFor="let  cust of CustomerModels">
+      <td>{{cust.CustomerCode}}</td>
+      <td>{{cust.CustomerName}}</td>
+      <td>{{cust.CustomerAmount}}</td>
+    </tr>
+  </table>
+
+</div>
+
+
 <router-outlet></router-outlet>
