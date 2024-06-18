@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'
 
-import { AppRoutingModule } from './app-routing.module';
-import { CustomerComponent } from './CustomerApp.component';
+import { AppRoutingModule } from '../app-routing.module';
+import { CustomerComponent } from './CustomerApp.CustomerComponent';
 
 @NgModule({
   declarations: [
-    CustomerComponent, 
+     
   ],
   imports: [
     BrowserModule,
@@ -15,6 +15,6 @@ import { CustomerComponent } from './CustomerApp.component';
     FormsModule
   ],
   providers: [],
-  bootstrap: [CustomerComponent]
+  bootstrap: []
 })
-export class CustomerModule { }
+export class CustomerModule1 { }
