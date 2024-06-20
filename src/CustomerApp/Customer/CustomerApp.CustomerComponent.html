@@ -1,10 +1,24 @@
 <div class="toolbar" role="banner">
 
-  <span>{{ title }}  is running!</span><br><br>
-  Customer code : <input [(ngModel)]="CustomerModel.CustomerCode" type=text /><br>
-  Customer Name : <input [(ngModel)]="CustomerModel.CustomerName" type=text /><br>
-  Customer Amount : <input [(ngModel)]="CustomerModel.CustomerAmount" type=text /><br>
-  <input type="button" (click)="Add()" value="Add"><br><br>
+  <span>{{ title }} is running!</span><br><br>
+  <form [formGroup]="CustomerModel.formGroup">
+    Customer code : <input formControlName="CustomerCodeControl" [(ngModel)]="CustomerModel.CustomerCode" type=text />
+    <div *ngIf="CustomerModel.formGroup.dirty" 
+      [hidden]="!(hasError('pattern','CustomerCodeControl'))" >Customer code format is not proper</div><br>
+<div *ngIf="CustomerModel.formGroup.dirty" 
+[hidden]="!(hasError('required','CustomerCodeControl'))">Customer code is required</div><br><br>
+    Customer Name : <input formControlName="CustomerNameControl" [(ngModel)]="CustomerModel.CustomerName" type=text />
+    <div *ngIf="CustomerModel.formGroup.dirty"
+[hidden]="!(hasError('required','CustomerNameControl'))"
+>Customer name is required</div><br><br>
+    Customer Amount : <input [(ngModel)]="CustomerModel.CustomerAmount" [ngModelOptions]="{standalone : true}" type=text /><br>
+    <input [disabled]="!(CustomerModel.formGroup.valid)"  type="button" (click)="Add()" value="Add"><br><br>
+  </form>
+
+  
+
+
+
   {{CustomerModel.CustomerCode}}<br>
   {{CustomerModel.CustomerName}}<br>
   {{CustomerModel.CustomerAmount}}<br><br><br><br>

@@ -7,11 +7,14 @@ import { Customer } from './CustomerApp.CustomerModel';
 })
 export class CustomerComponent {
   title = ' Customer Application';
-  CustomerModel : Customer = new Customer();
-  CustomerModels : Array<Customer> = new Array<Customer>();
-  Add(){
+  CustomerModel: Customer = new Customer();
+  CustomerModels: Array<Customer> = new Array<Customer>();
+  Add() {
     this.CustomerModels.push(this.CustomerModel);
     this.CustomerModel = new Customer();
   }
 
+  hasError(typeofvalidator: string, controlname: string): boolean {
+    return this.CustomerModel.formGroup.controls[controlname].hasError(typeofvalidator);
+  }
 }
